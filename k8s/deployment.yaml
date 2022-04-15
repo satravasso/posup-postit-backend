@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nestjs-k8s
+spec:
+  selector:
+    matchLabels:
+      app: nestjs-k8s
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nestjs-k8s
+    spec:
+      containers:
+        - name: nestjs-k8s
+          image: satravasso/nestjs-k8s
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nestjs-k8s
+spec:
+  selector:
+    app: nestjs-k8s
+  ports:
+    - protocol: TCP
+      port: 3000
+  type: LoadBalancer
