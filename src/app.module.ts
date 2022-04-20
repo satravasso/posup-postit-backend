@@ -5,7 +5,7 @@ import { PostItModule } from './postit/postit.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/?directConnection=true&serverSelectionTimeoutMS=30&appName=mongosh+1.3.1`
+      `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/?directConnection=true&serverSelectionTimeoutMS=30&appName=mongosh+1.3.1`
     ),
     PostItModule,
   ],
